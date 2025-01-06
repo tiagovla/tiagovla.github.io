@@ -1,0 +1,10 @@
+---
+const { title, description, path } = Astro.props
+---
+
+<div class="postcard">
+  <div class="title">
+    <a href={path}> {title} </a>
+  </div>
+  <div class="description">{description}</div>
+</div>

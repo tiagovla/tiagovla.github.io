@@ -1,11 +1,36 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MainLayout from '../layouts/MainLayout.astro'
+import Counter from '../components/Counter'
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout>
+  <main>
+    <section class="welcome">
+      <h1>Welcome!</h1>
+      <p>
+        Hey 👋, I’m Tiago! I'm an engineer with a deep interest in researching
+        numerical methods. Passionate about technology, I enjoy exploring
+        innovative solutions and advancing my understanding of technical fields.
+        Feel free to explore my work and insights here!
+      </p>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  main {
+    @apply h-full flex flex-col justify-center items-center;
+  }
+  .welcome {
+    @apply flex flex-col p-4 sm:max-w-sm md:max-w-md lg:max-w-3xl mx-auto;
+  }
+
+  .welcome h1 {
+    @apply text-4xl font-semibold text-tokyodark-blue;
+  }
+
+  .welcome p {
+    @apply text-2xl text-tokyodark-text;
+  }
+</style>
+

@@ -1,0 +1,27 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+const { frontmatter } = Astro.props
+---
+
+<MainLayout>
+  <main>
+    <h1 class="post-title">{frontmatter.title}</h1>
+    <div class="post-content">
+      <slot />
+    </div>
+  </main>
+</MainLayout>
+
+<style>
+  main {
+    @apply flex flex-col p-4 sm:max-w-sm md:max-w-md lg:max-w-3xl mx-auto;
+  }
+
+  .post-title {
+    @apply text-tokyodark-blue text-4xl font-extrabold leading-tight mb-5;
+  }
+
+  .post-content {
+    @apply text-tokyodark-text prose prose-lg max-w-none;
+  }
+</style>

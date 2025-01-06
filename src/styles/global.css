@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: 'Roboto';
+}
+
+code {
+  font-family: 'JetBrains Mono';
+}
+
+body {
+  @apply bg-tokyodark-bg flex flex-col h-screen;
+}
+
+h1 {
+  @apply text-tokyodark-blue;
+}
+
+h2 {
+  @apply text-tokyodark-yellow font-bold mb-4;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  @apply text-tokyodark-cyan font-bold mb-4;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+h4 {
+  @apply text-xl md:text-2xl;
+}
+
+h5 {
+  @apply text-lg md:text-xl;
+}
+
+h6 {
+  @apply text-base md:text-lg;
+}
+
+p {
+  @apply mb-6;
+}
+
+a {
+  @apply focus-visible:no-underline focus-visible:outline-dashed;
+}
+
+ul {
+  @apply list-disc list-inside mb-6;
+}
+
+ol {
+  @apply list-decimal list-inside mb-6;
+}
+
+li {
+  @apply mb-2;
+}
+
+blockquote {
+  @apply border-l-4 pl-4 italic  mb-6;
+}
+
+pre {
+  @apply rounded p-4 overflow-x-auto mb-6;
+}
+
+code {
+  @apply rounded p-1 font-mono text-sm;
+}
+
+hr {
+  @apply border-t my-8;
+}
+
+img {
+  @apply max-w-full h-auto rounded;
+}
+
+.container {
+  @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+footer {
+  @apply bg-tokyodark-dark text-tokyodark-comment text-center py-4 mt-auto;
+}
+
+.postcard {
+  @apply p-6 transition-shadow duration-300;
+}
+
+.postcard:hover {
+  @apply shadow-lg bg-tokyodark-dark;
+}
+
+.postcard .title {
+  @apply text-2xl font-semibold text-tokyodark-blue mb-3 transition-colors duration-300 text-wrap;
+}
+
+.postcard .title:hover {
+  @apply subpixel-antialiased text-tokyodark-magenta;
+}
+
+.postcard .description {
+  @apply text-xl text-tokyodark-text;
+}

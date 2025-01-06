@@ -1,0 +1,23 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+import publications from '../data/publications'
+---
+
+<MainLayout title="Publications">
+  <main>
+    <section class="welcome">
+      <h2>Publications:</h2>
+      {
+        publications.map((publication) => (
+          <div class="text-tokyodark-text">{publication}</div>
+        ))
+      }
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  main {
+    @apply flex-1 px-4 sm:max-w-sm md:max-w-md lg:max-w-5xl mx-auto mt-12;
+  }
+</style>
