@@ -6,10 +6,10 @@ export default {
       colors: {
         tokyodark: {
           bg: '#1a1b26', // Background
-          dark: '#16161e', // Darker background
+          dark: '#11121D', // Darker background
           darker: '#13141c', // Even darker
           comment: '#565f89', // Comments/secondary text
-          text: '#c0caf5', // Main text
+          text: '#A0A8CD', // Main text
           blue: '#7aa2f7', // Accent blue
           cyan: '#7dcfff', // Cyan
           green: '#9ece6a', // Green

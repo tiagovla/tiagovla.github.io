@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  font-family: 'Roboto';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 code {
@@ -12,6 +15,7 @@ code {
 
 body {
   @apply bg-tokyodark-bg flex flex-col h-screen;
+  padding-top: 5rem;
 }
 
 h1 {

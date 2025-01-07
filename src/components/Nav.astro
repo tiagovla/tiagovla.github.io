@@ -4,108 +4,207 @@ import Link from './Link.astro'
 import navData from '../data/navData'
 ---
 
-<nav>
-  <div class="navbar">
-    <div class="navbar-small">
-      <a href="/" class="navbar-brand" aria-label="Go home">
-        AMORIM, T. V. L.
-      </a>
-      <button class="hamburger md:hidden" aria-label="Toggle navigation">
-        <Icon class="hamburger-icon text-3xl" name="ic:round-menu" />
-        <Icon class="hamburger-icon hidden text-3xl" name="ic:round-menu-open" />
-      </button>
-    </div>
-    <div class="navbar-menu-container">
-      <div class="navbar-menu">
-        {
-          navData.map((item) => (
-            <Link
-              text={item.name}
-              href={item.path}
-              style="primary"
-              isFilled={false}
-              data-navLink
-              classes="navbar-item"
-            />
-          ))
-        }
-      </div>
-    </div>
-  </div>
-</nav>
+<header class="header">
+  <a href="/" class="logo"> AMORIM, T. V. L. </a>
+  <input type="checkbox" id="check" />
+  <label for="check" class="icons">
+    <Icon id="menu-icon" name="ic:round-menu" />
+    <Icon id="close-icon" name="ic:round-close" />
+  </label>
+  <nav class="navbar">
+    {navData.map((item) => <a href={item.path}> {item.name} </a>)}
+  </nav>
+</header>
 
 <style>
-  .navbar {
-    @apply bg-tokyodark-dark text-tokyodark-text px-10 py-3 flex justify-between items-center w-full;
-    transition: background-color 0.3s ease-in-out;
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
   }
 
-  .navbar-brand {
-    @apply py-1 text-2xl font-semibold whitespace-nowrap hover:text-tokyodark-magenta transition duration-300;
-    transition: transform 0.3s ease-in-out;
+  .header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);
+    z-index: -1;
   }
 
-  .navbar-small {
-    @apply w-full flex flex-row items-center justify-between;
+  .logo {
+    font-size: 2.0rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    @apply text-tokyodark-text hover:text-tokyodark-magenta
   }
 
-  .navbar-menu-container {
-    @apply flex items-center space-x-4 md:space-x-6;
+  .navbar a {
+    font-size: 1.15rem;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 1.5rem;
+    @apply text-tokyodark-text hover:text-tokyodark-magenta
   }
 
-  .navbar-menu {
-    @apply flex space-x-4 md:space-x-6 items-center;
-  }
-
-  .navbar-item {
-    @apply text-tokyodark-comment hover:text-tokyodark-magenta transition duration-300 ease-in-out;
-    transition:
-      transform 0.2s ease,
-      color 0.3s ease-in-out;
-  }
-
-  .navbar-item:hover {
-    @apply text-tokyodark-magenta font-semibold;
-    transform: scale(1.1); /* Scale on hover */
-  }
-
-  .navbar-item.active {
+  .navbar a.active {
     @apply text-tokyodark-magenta font-semibold border-tokyodark-magenta;
   }
 
-  .hamburger {
-    @apply p-2 md:hidden text-tokyodark-text;
-    background: none;
-    border: none;
+  #check {
+    display: none;
+  }
+
+  .icons {
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
     cursor: pointer;
+    display: none;
+    @apply text-tokyodark-text
   }
 
-  .navbar-menu {
-    @apply hidden md:flex;
-  }
-
-  .navbar-menu.open {
-    @apply flex;
-  }
-
-  .navbar.open {
-    @apply flex-col;
-  }
-
-  @media (min-width: 768px) {
-    .navbar.open {
-      @apply flex-row;
+  @media (max-width: 992px) {
+    .header {
+      padding: 0.3rem 5%;
     }
   }
+
+  @media (max-width: 883px) {
+    .icons {
+      display: inline-flex;
+    }
+
+    #check:checked ~ .icons #menu-icon {
+      display: none;
+    }
+
+    .icons #close-icon {
+      display: none;
+    }
+
+    #check:checked ~ .icons #close-icon {
+      display: block;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(50px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    #check:checked ~ .navbar {
+      height: 11.7rem;
+    }
+
+    .navbar a {
+      display: block;
+      font-size: 1.1rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      transform: translateY(-50px);
+      transition: 0.3s ease;
+      opacity: 0;
+    }
+
+    #check:checked ~ .navbar a {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+
+  /* .navbar { */
+  /*     @apply bg-tokyodark-dark */
+  /*         text-tokyodark-text px-10 py-3 flex justify-between items-center w-full; */
+  /*   transition: background-color 0.3s ease-in-out; */
+  /* } */
+  /**/
+  /* .navbar-brand { */
+  /*   @apply py-1 text-2xl font-semibold whitespace-nowrap hover:text-tokyodark-magenta transition duration-300; */
+  /*   transition: transform 0.3s ease-in-out; */
+  /* } */
+  /**/
+  /* .navbar-small { */
+  /*   @apply w-full flex flex-row items-center justify-between; */
+  /* } */
+  /**/
+  /* .navbar-menu-container { */
+  /*   @apply flex items-center space-x-4 md:space-x-6; */
+  /* } */
+  /**/
+  /* .navbar-menu { */
+  /*   @apply flex space-x-4 md:space-x-6 items-center; */
+  /* } */
+
+  /* .navbar-item { */
+  /* @apply text-tokyodark-comment hover:text-tokyodark-magenta transition duration-300 ease-in-out; */
+  /* transition: */
+  /*   transform 0.2s ease, */
+  /*   color 0.3s ease-in-out; */
+  /* } */
+
+  /* .navbar-item:hover { */
+  /*   @apply text-tokyodark-magenta font-semibold; */
+  /*   transform: scale(1.1); */
+  /* Scale on hover */
+  /* } */
+
+  /* .navbar-item.active { */
+  /*   @apply text-tokyodark-magenta font-semibold border-tokyodark-magenta; */
+  /* } */
+
+  /* .hamburger { */
+  /*   @apply p-2 md:hidden text-tokyodark-text; */
+  /*   background: none; */
+  /*   border: none; */
+  /*   cursor: pointer; */
+  /* } */
+  /**/
+  /* .navbar-menu { */
+  /*   @apply hidden md:flex; */
+  /* } */
+  /**/
+  /* .navbar-menu.open { */
+  /*   @apply flex; */
+  /* } */
+  /**/
+  /* .navbar.open { */
+  /*   @apply flex-col; */
+  /* } */
+  /**/
+  /* @media (min-width: 768px) { */
+  /*   .navbar.open { */
+  /*     @apply flex-row; */
+  /*   } */
+  /* } */
 </style>
 
 <script>
-  const navLinks = document.querySelectorAll('[data-navLink]')
-  const hamburger = document.querySelector('.hamburger')
-  const hamburgerIcons = document.querySelectorAll('.hamburger-icon')
-  const navbarMenu = document.querySelector('.navbar-menu')
-  const navbar = document.querySelector('.navbar')
-
+  const navLinks = document.querySelectorAll('.navbar a')
+  // const hamburger = document.querySelector('.hamburger')
+  // const hamburgerIcons = document.querySelectorAll('.hamburger-icon')
+  // const navbarMenu = document.querySelector('.navbar-menu')
+  // const navbar = document.querySelector('.navbar')
+  //
   // Add active class to the current page link
   navLinks.forEach((link) => {
     if (link.getAttribute('href') === window.location.pathname) {
@@ -114,18 +213,18 @@ import navData from '../data/navData'
       link.classList.remove('active')
     }
   })
-
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open')
-    navbarMenu.classList.toggle('open')
-    navbar.classList.toggle('open')
-    hamburgerIcons.forEach((icon) => icon.classList.toggle('hidden'))
-  })
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 768) {
-      navbar.classList.remove('open')
-      navbarMenu.classList.remove('open')
-    }
-  })
+  //
+  // hamburger.addEventListener('click', () => {
+  //   hamburger.classList.toggle('open')
+  //   navbarMenu.classList.toggle('open')
+  //   navbar.classList.toggle('open')
+  //   hamburgerIcons.forEach((icon) => icon.classList.toggle('hidden'))
+  // })
+  //
+  // window.addEventListener('resize', () => {
+  //   if (window.innerWidth >= 768) {
+  //     navbar.classList.remove('open')
+  //     navbarMenu.classList.remove('open')
+  //   }
+  // })
 </script>
