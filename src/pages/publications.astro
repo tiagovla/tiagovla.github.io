@@ -4,22 +4,24 @@ import publications from '../data/publications'
 ---
 
 <MainLayout title="Publications">
-  <main>
-    <section class="welcome">
-      <h2>Publications:</h2>
-      {publications.map((publication) =>
-      <div class="publication">{publication}</div>)}
-    </section>
-  </main>
+    <main>
+        <section class="welcome">
+            <h2>Publications:</h2>
+            {
+                publications.map((publication) => (
+                    <div class="publication">{publication}</div>
+                ))
+            }
+        </section>
+    </main>
 </MainLayout>
 
 <style>
-  main {
-    @apply p-6;
-  }
+    main {
+        @apply p-6;
+    }
 
-  .publication {
-      @apply p-6 text-tokyodark-text
-  }
-
+    .publication {
+        @apply p-6 text-tokyodark-text;
+    }
 </style>

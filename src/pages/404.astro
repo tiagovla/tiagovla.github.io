@@ -3,38 +3,38 @@ import MainLayout from '../layouts/MainLayout.astro'
 ---
 
 <MainLayout>
-  <main>
-    <div class="error_wrapper">
-      <div class="error">
-        <h1 class="ops">Oops! 😅</h1>
-        <p>
-          Looks like you've hit a dead-end. The page you're looking for doesn't
-          exist.
-        </p>
-        <p>But hey, no worries! Let's get you back on track.</p>
-        <a href="/"> Go Home </a>
-      </div>
-    </div>
-  </main>
+    <main>
+        <div class="error_wrapper">
+            <div class="error">
+                <h1 class="ops">Oops! 😅</h1>
+                <p>
+                    Looks like you've hit a dead-end. The page you're looking
+                    for doesn't exist.
+                </p>
+                <p>But hey, no worries! Let's get you back on track.</p>
+                <a href="/"> Go Home </a>
+            </div>
+        </div>
+    </main>
 </MainLayout>
 
 <style>
-  main {
-    @apply h-full flex items-center mx-auto;
-  }
-  .error_wrapper {
-    @apply flex h-full items-center justify-center;
-  }
-  .error {
-    @apply text-center bg-white p-8 rounded-lg shadow-xl max-w-lg;
-  }
-  .ops {
-    @apply text-6xl font-bold text-blue-600 mb-4;
-  }
-  .error p {
-    @apply text-xl;
-  }
-  .error a {
-    @apply px-6 py-3 bg-blue-500 text-white rounded-full text-xl font-semibold hover:bg-blue-600 transition duration-300;
-  }
+    main {
+        @apply h-full flex items-center mx-auto;
+    }
+    .error_wrapper {
+        @apply flex h-full items-center justify-center;
+    }
+    .error {
+        @apply text-center bg-white p-8 rounded-lg shadow-xl max-w-lg;
+    }
+    .ops {
+        @apply text-6xl font-bold text-blue-600 mb-4;
+    }
+    .error p {
+        @apply text-xl;
+    }
+    .error a {
+        @apply px-6 py-3 bg-blue-500 text-white rounded-full text-xl font-semibold hover:bg-blue-600 transition duration-300;
+    }
 </style>

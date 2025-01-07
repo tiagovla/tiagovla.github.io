@@ -5,17 +5,17 @@ const posts = await Astro.glob('./*.md')
 ---
 
 <MainLayout title="Blog">
-  <main>
-    <ul>
-      {
-        posts.map((post) => (
-          <PostCard
-            title={post.frontmatter.title}
-            description={post.frontmatter.description}
-            path={post.url}
-          />
-        ))
-      }
-    </ul>
-  </main>
+    <main>
+        <ul>
+            {
+                posts.map((post) => (
+                    <PostCard
+                        title={post.frontmatter.title}
+                        description={post.frontmatter.description}
+                        path={post.url}
+                    />
+                ))
+            }
+        </ul>
+    </main>
 </MainLayout>

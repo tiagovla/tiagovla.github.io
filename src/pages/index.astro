@@ -4,32 +4,33 @@ import Counter from '../components/Counter'
 ---
 
 <MainLayout>
-  <main>
-    <section class="welcome">
-      <h1>Welcome!</h1>
-      <p>
-        Hey 👋, I’m Tiago! I'm an engineer with a deep interest in researching
-        numerical methods. Passionate about technology, I enjoy exploring
-        innovative solutions and advancing my understanding of technical fields.
-        Feel free to explore my work and insights here!
-      </p>
-    </section>
-  </main>
+    <main>
+        <section class="welcome">
+            <h1>Welcome!</h1>
+            <p>
+                Hey 👋, I’m Tiago! I'm an engineer with a deep interest in
+                researching numerical methods. Passionate about technology, I
+                enjoy exploring innovative solutions and advancing my
+                understanding of technical fields. Feel free to explore my work
+                and insights here!
+            </p>
+        </section>
+    </main>
 </MainLayout>
 
 <style>
-  main {
-    @apply h-full flex flex-col justify-center items-center;
-  }
-  .welcome {
-    @apply flex flex-col p-4 sm:max-w-sm md:max-w-md lg:max-w-3xl mx-auto;
-  }
+    main {
+        @apply h-full flex flex-col justify-center items-center;
+    }
+    .welcome {
+        @apply flex flex-col p-4 sm:max-w-sm md:max-w-md lg:max-w-3xl mx-auto;
+    }
 
-  .welcome h1 {
-    @apply text-4xl font-semibold text-tokyodark-blue;
-  }
+    .welcome h1 {
+        @apply text-4xl font-semibold text-tokyodark-blue;
+    }
 
-  .welcome p {
-    @apply text-2xl text-tokyodark-text;
-  }
+    .welcome p {
+        @apply text-2xl text-tokyodark-text;
+    }
 </style>
