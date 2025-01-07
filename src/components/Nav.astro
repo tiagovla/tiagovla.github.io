@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components'
-import Link from './Link.astro'
 import navData from '../data/navData'
 ---
 
@@ -17,194 +16,154 @@ import navData from '../data/navData'
 </header>
 
 <style>
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 10%;
+    z-index: 100;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(50px);
+    z-index: -1;
+}
+
+.icons {
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    cursor: pointer;
+    display: none;
+    transition: 0.3s ease;
+    color: var(--tokyodark-text);
+}
+
+.icons:hover {
+    color: var(--tokyodark-magenta);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    color: var(--tokyodark-text);
+}
+
+.logo:hover {
+    color: var(--tokyodark-magenta);
+}
+
+.navbar {
+    display: flex;
+}
+
+.navbar a {
+    color: var(--tokyodark-text);
+    font-size: 1.15rem;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 1.5rem;
+    transition:
+        transform 0.2s ease,
+        color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    transform: scale(1.1);
+    color: var(--tokyodark-magenta);
+}
+
+.navbar a.active {
+    color: var(--tokyodark-magenta);
+    border-color: var(--tokyodark-border);
+    font-weight: 600;
+}
+
+#check {
+    display: none;
+}
+
+@media (max-width: 992px) {
     .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 1rem 10%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 100;
+        padding: 0.3rem 5%;
+    }
+}
+
+@media (max-width: 883px) {
+    .icons {
+        display: inline-flex;
     }
 
-    .header::before {
-        content: '';
+    #check:checked ~ .icons #menu-icon {
+        display: none;
+    }
+
+    .icons #close-icon {
+        display: none;
+    }
+
+    #check:checked ~ .icons #close-icon {
+        display: block;
+    }
+
+    .navbar {
         position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: red;
-        top: 0;
+        top: 100%;
         left: 0;
-        background: rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: 0;
+        background: rgba(0, 0, 0, 0.3);
         backdrop-filter: blur(50px);
-        z-index: -1;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: 0.3s ease;
+        display: flex;
+        flex-direction: column;
     }
 
-    .logo {
-        font-size: 2rem;
-        font-weight: 700;
-        text-decoration: none;
-        white-space: nowrap;
-        @apply text-tokyodark-text hover:text-tokyodark-magenta;
+    #check:checked ~ .navbar {
+        height: auto;
     }
 
     .navbar a {
-        font-size: 1.15rem;
-        text-decoration: none;
-        font-weight: 500;
-        margin-left: 1.5rem;
-        @apply text-tokyodark-text hover:text-tokyodark-magenta;
+        font-size: 1.1rem;
+        margin: 0.5rem 0 0rem;
+        text-align: center;
+        transform: translateY(-50px);
+        transition: 0.3s ease;
+        opacity: 0;
     }
 
-    .navbar a.active {
-        @apply text-tokyodark-magenta font-semibold border-tokyodark-magenta;
+    .navbar a:nth-last-child(1) {
+        margin-bottom: 1rem;
     }
 
-    #check {
-        display: none;
+    #check:checked ~ .navbar a {
+        transform: translateY(0);
+        opacity: 1;
     }
 
-    .icons {
-        position: absolute;
-        right: 5%;
-        font-size: 2.8rem;
-        cursor: pointer;
-        display: none;
-        @apply text-tokyodark-text;
+    #check:checked ~ .navbar a:hover {
+        transform: scale(1.1);
     }
-
-    @media (max-width: 992px) {
-        .header {
-            padding: 0.3rem 5%;
-        }
-    }
-
-    @media (max-width: 883px) {
-        .icons {
-            display: inline-flex;
-        }
-
-        #check:checked ~ .icons #menu-icon {
-            display: none;
-        }
-
-        .icons #close-icon {
-            display: none;
-        }
-
-        #check:checked ~ .icons #close-icon {
-            display: block;
-        }
-
-        .navbar {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 0;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(50px);
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: 0.3s ease;
-        }
-
-        #check:checked ~ .navbar {
-            height: 11.7rem;
-        }
-
-        .navbar a {
-            display: block;
-            font-size: 1.1rem;
-            margin: 1.5rem 0;
-            text-align: center;
-            transform: translateY(-50px);
-            transition: 0.3s ease;
-            opacity: 0;
-        }
-
-        #check:checked ~ .navbar a {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    /* .navbar { */
-    /*     @apply bg-tokyodark-dark */
-    /*         text-tokyodark-text px-10 py-3 flex justify-between items-center w-full; */
-    /*   transition: background-color 0.3s ease-in-out; */
-    /* } */
-    /**/
-    /* .navbar-brand { */
-    /*   @apply py-1 text-2xl font-semibold whitespace-nowrap hover:text-tokyodark-magenta transition duration-300; */
-    /*   transition: transform 0.3s ease-in-out; */
-    /* } */
-    /**/
-    /* .navbar-small { */
-    /*   @apply w-full flex flex-row items-center justify-between; */
-    /* } */
-    /**/
-    /* .navbar-menu-container { */
-    /*   @apply flex items-center space-x-4 md:space-x-6; */
-    /* } */
-    /**/
-    /* .navbar-menu { */
-    /*   @apply flex space-x-4 md:space-x-6 items-center; */
-    /* } */
-
-    /* .navbar-item { */
-    /* @apply text-tokyodark-comment hover:text-tokyodark-magenta transition duration-300 ease-in-out; */
-    /* transition: */
-    /*   transform 0.2s ease, */
-    /*   color 0.3s ease-in-out; */
-    /* } */
-
-    /* .navbar-item:hover { */
-    /*   @apply text-tokyodark-magenta font-semibold; */
-    /*   transform: scale(1.1); */
-    /* Scale on hover */
-    /* } */
-
-    /* .navbar-item.active { */
-    /*   @apply text-tokyodark-magenta font-semibold border-tokyodark-magenta; */
-    /* } */
-
-    /* .hamburger { */
-    /*   @apply p-2 md:hidden text-tokyodark-text; */
-    /*   background: none; */
-    /*   border: none; */
-    /*   cursor: pointer; */
-    /* } */
-    /**/
-    /* .navbar-menu { */
-    /*   @apply hidden md:flex; */
-    /* } */
-    /**/
-    /* .navbar-menu.open { */
-    /*   @apply flex; */
-    /* } */
-    /**/
-    /* .navbar.open { */
-    /*   @apply flex-col; */
-    /* } */
-    /**/
-    /* @media (min-width: 768px) { */
-    /*   .navbar.open { */
-    /*     @apply flex-row; */
-    /*   } */
-    /* } */
+}
 </style>
 
 <script>
     const navLinks = document.querySelectorAll('.navbar a')
-    // const hamburger = document.querySelector('.hamburger')
-    // const hamburgerIcons = document.querySelectorAll('.hamburger-icon')
-    // const navbarMenu = document.querySelector('.navbar-menu')
-    // const navbar = document.querySelector('.navbar')
-    //
-    // Add active class to the current page link
     navLinks.forEach((link) => {
         if (link.getAttribute('href') === window.location.pathname) {
             link.classList.add('active')
@@ -212,18 +171,4 @@ import navData from '../data/navData'
             link.classList.remove('active')
         }
     })
-    //
-    // hamburger.addEventListener('click', () => {
-    //   hamburger.classList.toggle('open')
-    //   navbarMenu.classList.toggle('open')
-    //   navbar.classList.toggle('open')
-    //   hamburgerIcons.forEach((icon) => icon.classList.toggle('hidden'))
-    // })
-    //
-    // window.addEventListener('resize', () => {
-    //   if (window.innerWidth >= 768) {
-    //     navbar.classList.remove('open')
-    //     navbarMenu.classList.remove('open')
-    //   }
-    // })
 </script>

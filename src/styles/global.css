@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --tokyodark-bg: #1a1b26; /* Background */
+    --tokyodark-dark: #11121d; /* Darker background */
+    --tokyodark-darker: #13141c; /* Even darker */
+    --tokyodark-comment: #565f89; /* Comments/secondary text */
+    --tokyodark-text: #a0a8cd; /* Main text */
+    --tokyodark-blue: #7aa2f7; /* Accent blue */
+    --tokyodark-cyan: #7dcfff; /* Cyan */
+    --tokyodark-green: #9ece6a; /* Green */
+    --tokyodark-magenta: #bb9af7; /* Magenta */
+    --tokyodark-red: #f7768e; /* Red */
+    --tokyodark-yellow: #e0af68; /* Yellow/Warning */
+    --tokyodark-border: #3b4261; /* Borders */
+}
+
 * {
     margin: 0;
     padding: 0;
