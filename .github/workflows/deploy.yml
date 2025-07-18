@@ -13,6 +13,13 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+      - name: Run Python script with CouchDB environment variables
+        env:
+          COUCHDB_HOST: ${{ secrets.COUCHDB_HOST }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          COUCHDB_USER: ${{ secrets.COUCHDB_USER }}
+          COUCHDB_PASSWORD: ${{ secrets.COUCHDB_PASSWORD }}
+        run: python .github/tools/fetch_data.py
       - name: Install, build, and upload your site
         uses: withastro/action@v3
   cleanup:
