@@ -50,9 +50,12 @@ nav {
     flex-wrap: wrap;
 }
 
-nav a {
+a {
     text-decoration: underline;
     color: #333;
+}
+
+nav a {
     padding-right: 1.5em;
 }
 
