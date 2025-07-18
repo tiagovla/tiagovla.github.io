@@ -8,5 +8,42 @@ const links = [
 ---
 
 <nav>
-    {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    {
+        links.map((link) => (
+            <a class="nav-link" href={link.href}>
+                {link.label}
+            </a>
+        ))
+    }
+    <input type="checkbox" id="theme-toggle" hidden />
+    <label class="check-icon" for="theme-toggle">🌓</label>
 </nav>
+
+<style>
+    .check-icon {
+        cursor: pointer;
+        font-size: 1rem;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+    }
+</style>
+
+<script>
+    const checkbox = document.getElementById('theme-toggle') as HTMLInputElement
+
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark')
+        checkbox.checked = true
+    }
+
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            document.body.classList.add('dark')
+            localStorage.setItem('theme', 'dark')
+        } else {
+            document.body.classList.remove('dark')
+            localStorage.setItem('theme', 'light')
+        }
+    })
+</script>
