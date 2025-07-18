@@ -6,10 +6,8 @@ export default defineConfig({
     site: 'https://tiagovla.github.io',
     markdown: {
         shikiConfig: {
-            themes: {
-                light: 'one-light',
-                dark: 'material-theme-palenight',
-            },
+            theme: 'css-variables',
+            wrap: false,
         },
     },
 
