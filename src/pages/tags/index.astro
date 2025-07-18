@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content'
+import MainLayout from '../../layouts/MainLayout.astro'
+
+const posts = await getCollection('blog')
+
+// Count tags
+const tagCounts: Record<string, number> = {}
+for (const post of posts) {
+    for (const tag of post.data.tags || []) {
+        tagCounts[tag] = (tagCounts[tag] || 0) + 1
+    }
+}
+
+// Optional: sort alphabetically
+const sortedTags = Object.entries(tagCounts).sort(([a], [b]) =>
+    a.localeCompare(b),
+)
+---
+
+<MainLayout>
+    <h1 class="custom-title">Tags</h1>
+    <ul class="tag-list">
+        {
+            sortedTags.map(([tag, count]) => (
+                <li>
+                    <a href={`/tags/${tag}/1`}>{tag}</a>
+                    <span>[{count}]</span>
+                </li>
+            ))
+        }
+    </ul>
+</MainLayout>
+
+<style>
+    .tag-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .tag-list li {
+        display: flex;
+        justify-content: space-between;
+        font-family: monospace;
+        padding: 0.2em 0;
+        border-bottom: 1px solid #eee;
+        font-size: 1.1em;
+        line-height: 1.5;
+    }
+
+    .tag-list a {
+        text-decoration: underline;
+        color: #000;
+    }
+</style>

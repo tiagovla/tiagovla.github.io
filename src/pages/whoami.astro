@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content'
+const projects = await getCollection('projects')
+import MainLayout from '../layouts/MainLayout.astro'
+---
+
+<MainLayout>
+    <h2 class="custom-title">Projects:</h2>
+    <div class="project-container">
+        <lu>
+            {
+                projects.map((item) => (
+                    <li class="project-item">
+                        <a class="project-link" href={item.data.url}>
+                            {item.data.name}
+                        </a>
+                        <p class="project-description">
+                            {item.data.description}
+                        </p>
+                    </li>
+                ))
+            }
+        </lu>
+    </div>
+</MainLayout>
+
+<style>
+    .project-container {
+        padding-top: 0.5rem;
+    }
+    .project-item {
+        transition: box-shadow 0.3s ease;
+    }
+    .project-item:hover {
+        background-color: #dfdfdf;
+    }
+    .project-description {
+        color: #444;
+        margin: 0.2em 0 0em 0;
+        padding: 0 0 0 0;
+    }
+</style>

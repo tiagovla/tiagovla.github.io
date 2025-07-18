@@ -1,0 +1,40 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro'
+import Paginator from '../../components/Paginator.astro'
+import PostCard from '../../components/PostCard.astro'
+import type { GetStaticPaths } from 'astro'
+import { getCollection } from 'astro:content'
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const posts = (await getCollection('blog')).sort(
+        (a, b) =>
+            new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+    )
+    return paginate(posts, { pageSize: 5 })
+}) satisfies GetStaticPaths
+
+const { page } = Astro.props
+---
+
+<MainLayout>
+    <div class="blog-posts">
+        {
+            page.data.map((post) => (
+                <PostCard
+                    date={post.data.date}
+                    title={post.data.title}
+                    description={post.data.description}
+                    url={`/blog/posts/${post.id}`}
+                />
+            ))
+        }
+    </div>
+    <Paginator page={page} />
+</MainLayout>
+
+<style>
+    .blog-posts {
+        flex: 1;
+        padding-top: 1rem;
+    }
+</style>

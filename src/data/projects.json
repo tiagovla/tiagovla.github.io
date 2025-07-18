@@ -1,0 +1,32 @@
+[
+    {
+        "id": "alpha-core",
+        "name": "Alpha Core",
+        "description": "High-performance computation engine for simulations.",
+        "url": "https://github.com/example/alpha-core"
+    },
+    {
+        "id": "lumen-docs",
+        "name": "Lumen Docs",
+        "description": "Static site generator for technical documentation.",
+        "url": "https://github.com/example/lumen-docs"
+    },
+    {
+        "id": "skyline-ui",
+        "name": "Skyline UI",
+        "description": "Modern UI components built with Tailwind and Vue.",
+        "url": "https://github.com/example/skyline-ui"
+    },
+    {
+        "id": "orbit-db",
+        "name": "Orbit DB",
+        "description": "Lightweight, distributed NoSQL database.",
+        "url": "https://github.com/example/orbit-db"
+    },
+    {
+        "id": "echo-ai",
+        "name": "Echo AI",
+        "description": "Toolkit for building conversational AI agents.",
+        "url": "https://github.com/example/echo-ai"
+    }
+]

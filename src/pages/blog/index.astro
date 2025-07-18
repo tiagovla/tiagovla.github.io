@@ -1,0 +1,63 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro'
+
+import { getCollection } from 'astro:content'
+
+const posts = (await getCollection('blog')).sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+)
+---
+
+<MainLayout>
+    <div class="blog-posts">
+        {
+            posts.map((post) => (
+                <div class="postcard">
+                    <time class="date" datetime={post.data.date.toISOString()}>
+                        {post.data.date.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                        })}
+                    </time>
+                    <a href={`/blog/posts/${post.id}`}>
+                        <h2>{post.data.title}</h2>
+                    </a>
+                    <p>{post.data.description}</p>
+                </div>
+            ))
+        }
+    </div>
+</MainLayout>
+
+<style>
+    .blog-posts {
+        padding-top: 1rem;
+    }
+    .postcard {
+        padding: 0.5rem;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .postcard:hover {
+        background-color: #dfdfdf;
+    }
+
+    .postcard h2 {
+        font-size: 1rem;
+        margin: 0.2em 0 0em 0;
+    }
+
+    .date {
+        font-size: 0.9rem;
+        color: #666;
+        margin: 0 0 0 0;
+        display: block;
+    }
+
+    .postcard p {
+        color: #444;
+        margin: 0em 0 0em 0;
+        padding: 0 0 0 0;
+    }
+</style>

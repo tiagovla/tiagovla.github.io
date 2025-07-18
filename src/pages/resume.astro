@@ -1,0 +1,15 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+const pdfUrl = '/data/resume.pdf'
+---
+
+<MainLayout>
+    <div style="width: 100%; height: 80vh;">
+        <iframe
+            src={pdfUrl}
+            width="100%"
+            height="100%"
+            style="border: none;"
+            title="PDF Form"></iframe>
+    </div>
+</MainLayout>
