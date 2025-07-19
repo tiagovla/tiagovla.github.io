@@ -30,7 +30,7 @@ function getAuthHeader(username: string, password: string) {
 }
 
 async function fetchDocs(hostname: string, db: string, headers: any, childIds: string[]) {
-    const res = await fetch(`${hostname}/${db}/_all_docs?include_docs=true`, {
+    const res = await fetch(`https://${hostname}/${db}/_all_docs?include_docs=true`, {
         method: 'POST',
         headers,
         body: JSON.stringify({ keys: childIds }),
@@ -49,7 +49,7 @@ export async function loadFromCouchDB(
     const headers = getAuthHeader(username, password);
 
     // Fetch top-level docs
-    const mainRes = await fetch(`${hostname}/${db}/_find`, {
+    const mainRes = await fetch(`https://${hostname}/${db}/_find`, {
         method: 'POST',
         headers,
         body: JSON.stringify({
