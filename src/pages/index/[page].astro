@@ -6,7 +6,7 @@ import type { GetStaticPaths } from 'astro'
 import { getCollection } from 'astro:content'
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const posts = (await getCollection('blog')).sort(
+    const posts = (await getCollection('posts')).sort(
         (a, b) =>
             new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
     )
@@ -24,7 +24,7 @@ const { page } = Astro.props
                     date={post.data.date}
                     title={post.data.title}
                     description={post.data.description}
-                    url={`/blog/posts/${post.id}`}
+                    url={`/posts/${post.id}`}
                 />
             ))
         }

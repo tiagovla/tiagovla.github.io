@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content'
 import MainLayout from '../../layouts/MainLayout.astro'
 
-const posts = await getCollection('blog')
+const posts = await getCollection('posts')
 
 // Count tags
 const tagCounts: Record<string, number> = {}
