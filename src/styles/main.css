@@ -1,4 +1,6 @@
 :root {
+    font-size: clamp(16px, 0.5vw, 20px);
+
     --sans: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto;
     --serif: Besley, Baskerville, Georgia, serif;
     --mono: 'JetBrains Mono', Consolas, monospace;
@@ -169,10 +171,9 @@ main article {
 .full-page {
     display: flex;
     flex-direction: column;
-    font-size: small;
+    font-size: var(--font-size-m);
     min-height: 99vh;
     width: 75%;
-    line-height: 1;
     margin: 0 auto;
     max-width: 50em;
     padding-right: 2em;
