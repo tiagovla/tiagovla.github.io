@@ -1,32 +1,116 @@
 [
     {
-        "id": "alpha-core",
-        "name": "Alpha Core",
-        "description": "High-performance computation engine for simulations.",
-        "url": "https://github.com/example/alpha-core"
+        "id": "oiseau",
+        "name": "oiseau",
+        "description": "Modern discontinuous Galerkin time-domain framework.",
+        "url": "https://github.com/tiagovla/oiseau"
     },
     {
-        "id": "lumen-docs",
-        "name": "Lumen Docs",
-        "description": "Static site generator for technical documentation.",
-        "url": "https://github.com/example/lumen-docs"
+        "id": "tokyodark.nvim",
+        "name": "tokyodark.nvim",
+        "description": "A clean dark theme for Neovim, written in Lua.",
+        "url": "https://github.com/tiagovla/tokyodark.nvim"
     },
     {
-        "id": "skyline-ui",
-        "name": "Skyline UI",
-        "description": "Modern UI components built with Tailwind and Vue.",
-        "url": "https://github.com/example/skyline-ui"
+        "id": "scatsol",
+        "name": "scatsol",
+        "description": "Analytical solutions for electromagnetic scattering.",
+        "url": "https://github.com/tiagovla/scatsol"
     },
     {
-        "id": "orbit-db",
-        "name": "Orbit DB",
-        "description": "Lightweight, distributed NoSQL database.",
-        "url": "https://github.com/example/orbit-db"
+        "id": "morpho.py",
+        "name": "morpho.py",
+        "description": "Photonic crystal band structures using the plane-wave expansion method.",
+        "url": "https://github.com/tiagovla/morpho.py"
     },
     {
-        "id": "echo-ai",
-        "name": "Echo AI",
-        "description": "Toolkit for building conversational AI agents.",
-        "url": "https://github.com/example/echo-ai"
+        "id": "fdtd.py",
+        "name": "fdtd.py",
+        "description": "Finite-difference time-domain simulation framework written in Python.",
+        "url": "https://github.com/tiagovla/fdtd.py"
+    },
+    {
+        "id": "scope.nvim",
+        "name": "scope.nvim",
+        "description": "Enhanced tab scoping for Neovim.",
+        "url": "https://github.com/tiagovla/scope.nvim"
+    },
+    {
+        "id": "projet.nvim",
+        "name": "projet.nvim",
+        "description": "Minimalist project management for Neovim.",
+        "url": "https://github.com/tiagovla/projet.nvim"
+    },
+    {
+        "id": "arara",
+        "name": "arara",
+        "description": "An elegant blue Beamer theme and Brazil-inspired biodiversity presentation.",
+        "url": "https://github.com/tiagovla/arara"
+    },
+    {
+        "id": "download_valet",
+        "name": "download_valet",
+        "description": "Automatically organize downloads with customizable rules in Firefox and Chrome.",
+        "url": "https://github.com/tiagovla/download_valet"
+    },
+    {
+        "id": "tinder.py",
+        "name": "tinder.py",
+        "description": "Asynchronous Tinder client inspired by discord.py.",
+        "url": "https://github.com/tiagovla/tinder.py"
+    },
+    {
+        "id": ".dotfiles",
+        "name": ".dotfiles",
+        "description": "Personal dotfiles managed with GNU Stow.",
+        "url": "https://github.com/tiagovla/.dotfiles"
+    },
+    {
+        "id": "garmin-miscale",
+        "name": "garmin-miscale",
+        "description": "Read Xiaomi S400 scale measurements over Bluetooth and upload them to Garmin Connect.",
+        "url": "https://github.com/tiagovla/garmin-miscale"
+    },
+    {
+        "id": "cccaddy",
+        "name": "cccaddy",
+        "description": "Caddy builds with Cloudflare DNS and CrowdSec bouncer modules.",
+        "url": "https://github.com/tiagovla/cccaddy"
+    },
+    {
+        "id": "dcsort",
+        "name": "dcsort",
+        "description": "Docker Compose YAML formatter with configurable key ordering.",
+        "url": "https://github.com/tiagovla/dcsort"
+    },
+    {
+        "id": "sciproxy",
+        "name": "sciproxy",
+        "description": "Self-hosted service for finding and serving research PDFs.",
+        "url": "https://github.com/tiagovla/sciproxy"
+    },
+    {
+        "id": "ppgee",
+        "name": "ppgee",
+        "description": "Python client for PPGEE attendance history and confirmation.",
+        "url": "https://github.com/tiagovla/ppgee"
+    },
+    {
+        "id": "cv",
+        "name": "cv",
+        "description": "A custom LaTeX class for clean, maintainable academic CVs.",
+        "url": "https://github.com/tiagovla/cv"
+    },
+    {
+        "id": "slowly.py",
+        "name": "slowly.py",
+        "description": "Unofficial asynchronous Python client for the Slowly pen-pal app.",
+        "url": "https://github.com/tiagovla/slowly.py"
+    },
+    {
+        "id": "sc2api",
+        "name": "sc2api",
+        "description": "Asynchronous Python wrapper for the StarCraft II API.",
+        "url": "https://github.com/tiagovla/sc2api"
     }
 ]
