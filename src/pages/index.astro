@@ -64,7 +64,6 @@ const posts = (await getCollection('posts'))
 
 <style>
     .home-intro h1 {
-        color: var(--teal);
         font-size: clamp(1.5rem, 5vw, 2rem);
         font-weight: 500;
         letter-spacing: var(--spacing-s);
@@ -73,6 +72,7 @@ const posts = (await getCollection('posts'))
     }
 
     .home-intro p {
+        font-size: var(--font-size-l);
         margin: 0 0 1rem;
     }
 
