@@ -1,4 +1,5 @@
 ---
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/'
 const links = [
     { href: '/', label: '@tiagovla' },
     { href: '/posts', label: '/posts' },
@@ -9,11 +10,22 @@ const links = [
 ---
 
 <nav>
-    {links.map((link) => (
-        <a class="nav-link" href={link.href}>
-            {link.label}
-        </a>
-    ))}
+    {links.map((link) => {
+        const active =
+            link.href === '/'
+                ? currentPath === '/'
+                : currentPath === link.href ||
+                  currentPath.startsWith(`${link.href}/`)
+        return (
+            <a
+                class:list={['nav-link', { active }]}
+                aria-current={active ? 'page' : undefined}
+                href={link.href}
+            >
+                {link.label}
+            </a>
+        )
+    })}
     <input type="checkbox" id="theme-toggle" hidden />
     <label class="check-icon" for="theme-toggle">
         🌓
@@ -24,6 +36,11 @@ const links = [
     .nav-link,
     .nav-link:visited {
         color: var(--text-primary);
+    }
+
+    .nav-link.active,
+    .nav-link.active:visited {
+        color: var(--purple);
     }
 
     .check-icon {

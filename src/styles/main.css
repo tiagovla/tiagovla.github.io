@@ -19,6 +19,7 @@
     --link: var(--text-primary);
     --heading: var(--text-primary);
     --teal: var(--text-primary);
+    --purple: var(--text-primary);
 
     /* Light Mode Colors (Default) */
     --bg: #ffffff;
@@ -82,6 +83,7 @@ html.dark {
     --link: #7199ee;
     --heading: #d7a65f;
     --teal: #38a89d;
+    --purple: #a485dd;
 
     /* Syntax Theme  */
     --astro-code-foreground: #a0a8cd;
