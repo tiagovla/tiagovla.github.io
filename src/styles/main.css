@@ -157,7 +157,7 @@ main article {
     min-height: 99vh;
     width: 75%;
     line-height: 1;
-    margin: auto;
+    margin: 0 auto;
     max-width: 50em;
     padding-right: 2em;
     padding-left: 2em;
