@@ -33,7 +33,7 @@ const { tag } = Astro.params
 ---
 
 <MainLayout>
-    Tag: {tag}
+    <h1 class="custom-title tag-heading">Tag: {tag}</h1>
     <div class="blog-posts">
         {page.data.map((post) => (
             <PostCard
@@ -48,6 +48,10 @@ const { tag } = Astro.params
 </MainLayout>
 
 <style>
+    .tag-heading {
+        color: var(--purple);
+    }
+
     .blog-posts {
         flex: 1;
         padding-top: 1rem;

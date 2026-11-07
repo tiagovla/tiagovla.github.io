@@ -197,6 +197,11 @@ a:visited {
     color: inherit;
 }
 
+.tag-link,
+.tag-link:visited {
+    color: var(--link);
+}
+
 footer {
     text-align: center;
     padding: 1rem;
@@ -204,7 +209,7 @@ footer {
 
 .custom-title {
     text-align: left;
-    font-size: 1em;
+    font-size: var(--font-size-l);
     font-weight: 600;
     padding-bottom: 20px;
     color: var(--heading);

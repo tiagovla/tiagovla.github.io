@@ -17,6 +17,7 @@ const { page } = Astro.props
 ---
 
 <MainLayout>
+    <h1 class="custom-title posts-title">Posts</h1>
     <div class="blog-posts">
         {page.data.map((post) => (
             <PostCard
@@ -31,6 +32,10 @@ const { page } = Astro.props
 </MainLayout>
 
 <style>
+    .posts-title {
+        color: var(--purple);
+    }
+
     .blog-posts {
         flex: 1;
         padding-top: 1rem;

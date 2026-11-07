@@ -19,11 +19,13 @@ const sortedTags = Object.entries(tagCounts).sort(([a], [b]) =>
 ---
 
 <MainLayout>
-    <h1 class="custom-title">Tags</h1>
+    <h1 class="custom-title tag-heading">Tags</h1>
     <ul class="tag-list">
         {sortedTags.map(([tag, count]) => (
             <li>
-                <a href={`/tags/${tag}/1`}>{tag}</a>
+                <a class="tag-link" href={`/tags/${tag}/1`}>
+                    {tag}
+                </a>
                 <span>[{count}]</span>
             </li>
         ))}
@@ -31,6 +33,10 @@ const sortedTags = Object.entries(tagCounts).sort(([a], [b]) =>
 </MainLayout>
 
 <style>
+    .tag-heading {
+        color: var(--purple);
+    }
+
     .tag-list {
         list-style: none;
         padding: 0;
@@ -47,7 +53,9 @@ const sortedTags = Object.entries(tagCounts).sort(([a], [b]) =>
         line-height: 1.5;
     }
 
-    .tag-list a {
+    .tag-list a,
+    .tag-list a:visited {
+        color: var(--text-primary);
         text-decoration: underline;
     }
 </style>
