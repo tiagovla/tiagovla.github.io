@@ -18,6 +18,7 @@
     --spacing-m: -0.02em;
     --link: var(--text-primary);
     --heading: var(--text-primary);
+    --teal: var(--text-primary);
 
     /* Light Mode Colors (Default) */
     --bg: #ffffff;
@@ -80,6 +81,7 @@ html.dark {
     --mark: #587738;
     --link: #7199ee;
     --heading: #d7a65f;
+    --teal: #38a89d;
 
     /* Syntax Theme  */
     --astro-code-foreground: #a0a8cd;
