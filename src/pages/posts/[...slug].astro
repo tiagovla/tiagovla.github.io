@@ -11,6 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props
+const tags = post.data.tags.map((tag) => tag.trim())
 const { Content } = await render(post)
 ---
 
@@ -22,26 +23,28 @@ const { Content } = await render(post)
             month: 'long',
             day: 'numeric',
         })}
-        {post.data.tags?.length > 0 && (
+        {tags.length > 0 ? (
             <>
                 {' in '}
-                {post.data.tags.map((tag, i) => {
+                {tags.map((tag, i) => {
                     const href = `/tags/${tag}/1`
-                    const label = (
-                        <a class="tag-link" href={href}>
-                            {tag}
-                        </a>
-                    )
+                    const separator =
+                        i === 0 ? '' : i === tags.length - 1 ? ' and ' : ', '
 
-                    if (post.data.tags.length === 2 && i === 0) return label
-                    if (i === post.data.tags.length - 1)
-                        return <> and {label}</>
-                    if (i > 0) return <>, {label}</>
-                    return label
+                    return (
+                        <>
+                            {separator}
+                            <a class="tag-link" href={href}>
+                                {tag}
+                            </a>
+                            {i === tags.length - 1 ? '.' : ''}
+                        </>
+                    )
                 })}
             </>
+        ) : (
+            '.'
         )}
-        .
     </p>
 
     <article class="post-content">
@@ -50,6 +53,11 @@ const { Content } = await render(post)
 </MainLayout>
 
 <style>
+    :global(html:not(.dark) .post-content .post-emoji) {
+        display: inline-block;
+        filter: grayscale(1);
+    }
+
     .post-heading {
         color: var(--heading);
         font-size: clamp(1.875rem, 4vw, 2.125rem);
@@ -58,6 +66,10 @@ const { Content } = await render(post)
 </style>
 
 <script>
+    import { grayscaleEmojis } from '../../utils/grayscaleEmojis'
+
+    grayscaleEmojis(document.querySelector('.post-content'))
+
     const copyIcon =
         '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>'
     const copiedIcon =

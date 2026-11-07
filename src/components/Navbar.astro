@@ -76,6 +76,7 @@ const links = [
 
     .check-icon {
         align-items: center;
+        color: var(--text-secondary);
         cursor: pointer;
         display: inline-flex;
         font-size: 1rem;
@@ -86,6 +87,10 @@ const links = [
     }
 
     .check-icon:hover {
+        color: var(--text-primary);
+    }
+
+    :global(html.dark) .check-icon:hover {
         color: var(--purple);
     }
 
