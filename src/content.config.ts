@@ -24,6 +24,16 @@ const projects = defineCollection({
     }),
 })
 
+const publications = defineCollection({
+    loader: file('./src/data/publications.json'),
+    schema: z.object({
+        title: z.string(),
+        authors: z.string(),
+        venue: z.string(),
+        year: z.number().int(),
+    }),
+})
+
 const posts = defineCollection({
     loader: dbLoader({
         hostname: import.meta.env.COUCHDB_HOST,
@@ -39,4 +49,4 @@ const posts = defineCollection({
     }),
 })
 
-export const collections = { blog, projects, posts }
+export const collections = { blog, projects, publications, posts }

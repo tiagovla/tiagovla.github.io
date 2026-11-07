@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content'
 const projects = await getCollection('projects')
+const publications = (await getCollection('publications')).sort(
+    (a, b) => b.data.year - a.data.year,
+)
 import MainLayout from '../layouts/MainLayout.astro'
 ---
 
@@ -44,10 +47,23 @@ import MainLayout from '../layouts/MainLayout.astro'
         ))}
     </ul>
     <h2 class="custom-title">Publications:</h2>
+    <ul class="publication-container" role="list">
+        {publications.map((item) => (
+            <li>
+                <cite>{item.data.title}</cite>
+                <p class="publication-details">
+                    {item.data.authors}
+                    <br />
+                    {item.data.venue}
+                </p>
+            </li>
+        ))}
+    </ul>
 </MainLayout>
 
 <style>
-    .project-container {
+    .project-container,
+    .publication-container {
         list-style: none;
         margin: 0;
         padding: 0.5rem 0 0;
@@ -56,7 +72,8 @@ import MainLayout from '../layouts/MainLayout.astro'
     .project-item {
         transition: box-shadow 0.3s ease;
     }
-    .project-description {
+    .project-description,
+    .publication-details {
         margin: 0.2em 0em 0.5em 0em;
         padding: 0 0 0 0;
     }
