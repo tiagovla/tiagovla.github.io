@@ -10,6 +10,7 @@ const publications = (await getCollection('publications')).sort(
     (a, b) => b.data.year - a.data.year,
 )
 import MainLayout from '../layouts/MainLayout.astro'
+import SectionDivider from '../components/SectionDivider.astro'
 ---
 
 <MainLayout>
@@ -40,6 +41,7 @@ import MainLayout from '../layouts/MainLayout.astro'
         </p>
     </article>
 
+    <SectionDivider tightTop />
     <h2 class="custom-title">Projects:</h2>
     <ul class="project-container" role="list">
         {featuredProjects.map((item) => (
@@ -64,6 +66,7 @@ import MainLayout from '../layouts/MainLayout.astro'
             ))}
         </ul>
     </details>
+    <SectionDivider tightTop />
     <h2 class="custom-title">Publications:</h2>
     <ul class="publication-container" role="list">
         {publications.map((item) => {
@@ -108,6 +111,9 @@ import MainLayout from '../layouts/MainLayout.astro'
     }
     .project-item {
         transition: box-shadow 0.3s ease;
+    }
+    .other-projects summary {
+        padding-bottom: 0.5rem;
     }
     .project-link,
     .project-link:visited,

@@ -1,0 +1,23 @@
+---
+interface Props {
+    tightTop?: boolean
+}
+
+const { tightTop = false } = Astro.props
+---
+
+<hr
+    class:list={['section-divider', { 'section-divider--tight-top': tightTop }]}
+/>
+
+<style>
+    .section-divider {
+        border: 0;
+        border-top: 1px solid var(--border);
+        margin: 1.5rem 0;
+    }
+
+    .section-divider--tight-top {
+        margin-top: 0.25rem;
+    }
+</style>

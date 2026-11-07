@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
+import SectionDivider from '../components/SectionDivider.astro'
 import MainLayout from '../layouts/MainLayout.astro'
 import PostCard from '../components/PostCard.astro'
 
@@ -43,6 +44,7 @@ const posts = (await getCollection('posts'))
         </nav>
     </section>
 
+    <SectionDivider tightTop />
     <section class="recent-posts" aria-labelledby="recent-posts-title">
         <h2 id="recent-posts-title" class="custom-title">
             Recent Posts
