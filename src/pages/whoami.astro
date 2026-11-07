@@ -1,6 +1,11 @@
 ---
 import { getCollection } from 'astro:content'
 const projects = await getCollection('projects')
+const featuredOrder = ['oiseau', 'morpho.py', 'fdtd.py']
+const featuredProjects = projects
+    .filter(({ id }) => featuredOrder.includes(id))
+    .sort((a, b) => featuredOrder.indexOf(a.id) - featuredOrder.indexOf(b.id))
+const otherProjects = projects.filter(({ id }) => !featuredOrder.includes(id))
 const publications = (await getCollection('publications')).sort(
     (a, b) => b.data.year - a.data.year,
 )
@@ -37,7 +42,7 @@ import MainLayout from '../layouts/MainLayout.astro'
 
     <h2 class="custom-title">Projects:</h2>
     <ul class="project-container" role="list">
-        {projects.map((item) => (
+        {featuredProjects.map((item) => (
             <li class="project-item">
                 <a class="project-link" href={item.data.url}>
                     {item.data.name}
@@ -46,18 +51,42 @@ import MainLayout from '../layouts/MainLayout.astro'
             </li>
         ))}
     </ul>
+    <details class="other-projects">
+        <summary>Other projects ({otherProjects.length})</summary>
+        <ul class="project-container" role="list">
+            {otherProjects.map((item) => (
+                <li class="project-item">
+                    <a class="project-link" href={item.data.url}>
+                        {item.data.name}
+                    </a>
+                    <p class="project-description">{item.data.description}</p>
+                </li>
+            ))}
+        </ul>
+    </details>
     <h2 class="custom-title">Publications:</h2>
     <ul class="publication-container" role="list">
-        {publications.map((item) => (
-            <li>
-                <cite>{item.data.title}</cite>
-                <p class="publication-details">
-                    {item.data.authors}
-                    <br />
-                    {item.data.venue}
-                </p>
-            </li>
-        ))}
+        {publications.map((item) => {
+            const link = item.data.doi
+                ? `https://doi.org/${item.data.doi}`
+                : item.data.url
+            return (
+                <li>
+                    <cite>
+                        {link ? (
+                            <a href={link}>{item.data.title}</a>
+                        ) : (
+                            item.data.title
+                        )}
+                    </cite>
+                    <p class="publication-details">
+                        {item.data.authors}
+                        <br />
+                        {item.data.venue}
+                    </p>
+                </li>
+            )
+        })}
     </ul>
 </MainLayout>
 

@@ -4,34 +4,39 @@
         "title": "Modular DGTD Implementation for Doubly Dispersive Media With Curvilinear Elements",
         "authors": "AMORIM, T. V. L.; SILVA, E. J.; MOREIRA, F. J. S.; TEIXEIRA, F. L.",
         "venue": "IEEE Antennas and Wireless Propagation Letters, vol. 24, no. 10, pp. 3644–3648, 2025.",
-        "year": 2025
+        "year": 2025,
+        "doi": "10.1109/LAWP.2025.3599788"
     },
     {
         "id": "modular-dgtd-vector-fitting",
         "title": "Modular Discontinuous Galerkin Time-Domain for General Dispersive Media with Vector Fitting",
         "authors": "AMORIM, T. V. L.; SILVA, E. J.; MOREIRA, F. J. S.; TEIXEIRA, F. L.",
         "venue": "IEEE Journal on Multiscale and Multiphysics Computational Techniques, vol. 10, pp. 179–186, Feb. 2025.",
-        "year": 2025
+        "year": 2025,
+        "doi": "10.1109/JMMCT.2025.3542379"
     },
     {
         "id": "plug-and-play-dgtd",
         "title": "A Plug-and-Play DGTD Implementation for General Dispersive Media",
         "authors": "AMORIM, T. V. L.; SILVA, E. J.; MOREIRA, F. J. S.; TEIXEIRA, F. L.",
         "venue": "2024 IEEE AP-S International Symposium on Antennas and Propagation, Firenze, Italy, July 2024.",
-        "year": 2024
+        "year": 2024,
+        "doi": "10.1109/AP-S/INC-USNC-URSI52054.2024.10686306"
     },
     {
         "id": "dgtd-electrodynamic-scattering",
         "title": "Discontinuous Galerkin Time-Domain Method in Computational Electrodynamic Scattering Problems",
         "authors": "AMORIM, T. V. L.; SILVA, E. J.; MOREIRA, F. J. S.",
         "venue": "XX Brazilian Symposium on Microwave and Optoelectronics (SBMO), 2022, Natal.",
-        "year": 2022
+        "year": 2022,
+        "url": "https://www.cpdee.ufmg.br/~fernando/artigos/sbmo22.pdf"
     },
     {
         "id": "tecnica-sem-malha-espalhamento",
         "title": "Aplicação de Técnica Sem-Malha Híbrida na Solução de Espalhamento Eletromagnético",
         "authors": "AMORIM, T. V. L.; MOREIRA, F. J. S.; RESENDE, U. C.",
         "venue": "XXXVII Brazilian Symposium on Telecommunications and Signal Processing (SBRT), 2019, Petrópolis.",
-        "year": 2019
+        "year": 2019,
+        "doi": "10.14209/sbrt.2019.1570552486"
     }
 ]
