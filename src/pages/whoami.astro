@@ -27,35 +27,31 @@ import MainLayout from '../layouts/MainLayout.astro'
         </p>
 
         <p>
-            To get in touch, you can find me at @tiagovla on <a
-                href="https://github.com/tiagovla/">github.com</a
-            >.
+            To get in touch, you can find me at @tiagovla on{' '}
+            <a href="https://github.com/tiagovla/">github.com</a>.
         </p>
     </article>
 
     <h2 class="custom-title">Projects:</h2>
-    <div class="project-container">
-        <lu>
-            {
-                projects.map((item) => (
-                    <li class="project-item">
-                        <a class="project-link" href={item.data.url}>
-                            {item.data.name}
-                        </a>
-                        <p class="project-description">
-                            {item.data.description}
-                        </p>
-                    </li>
-                ))
-            }
-        </lu>
-    </div>
+    <ul class="project-container" role="list">
+        {projects.map((item) => (
+            <li class="project-item">
+                <a class="project-link" href={item.data.url}>
+                    {item.data.name}
+                </a>
+                <p class="project-description">{item.data.description}</p>
+            </li>
+        ))}
+    </ul>
     <h2 class="custom-title">Publications:</h2>
 </MainLayout>
 
 <style>
     .project-container {
-        padding-top: 0.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0.5rem 0 0;
+        line-height: 2;
     }
     .project-item {
         transition: box-shadow 0.3s ease;

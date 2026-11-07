@@ -8,15 +8,15 @@ const links = [
 ---
 
 <nav>
-    {
-        links.map((link) => (
-            <a class="nav-link" href={link.href}>
-                {link.label}
-            </a>
-        ))
-    }
+    {links.map((link) => (
+        <a class="nav-link" href={link.href}>
+            {link.label}
+        </a>
+    ))}
     <input type="checkbox" id="theme-toggle" hidden />
-    <label class="check-icon" for="theme-toggle">🌓</label>
+    <label class="check-icon" for="theme-toggle">
+        🌓
+    </label>
 </nav>
 
 <style>

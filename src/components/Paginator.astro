@@ -12,13 +12,11 @@ const { page } = Astro.props
         ←
     </a>
 
-    {
-        page.lastPage > 1 && (
-            <span>
-                {page.currentPage}/{page.lastPage}
-            </span>
-        )
-    }
+    {page.lastPage > 1 && (
+        <span>
+            {page.currentPage}/{page.lastPage}
+        </span>
+    )}
 
     <a
         class:list={['next', { hidden: !page.url.next }]}
