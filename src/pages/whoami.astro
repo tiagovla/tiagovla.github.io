@@ -110,10 +110,14 @@ import SectionDivider from '../components/SectionDivider.astro'
         line-height: 2;
     }
     .project-item {
+        line-height: 1.5;
         transition: box-shadow 0.3s ease;
     }
     .other-projects summary {
         padding-bottom: 0.5rem;
+    }
+    .other-projects[open] .project-container {
+        padding-left: 1em;
     }
     .publication-container cite {
         color: var(--heading);
@@ -126,9 +130,12 @@ import SectionDivider from '../components/SectionDivider.astro'
         color: var(--heading);
         font-size: var(--font-size-l);
     }
-    .project-description,
+    .project-description {
+        margin: 0 0 1em;
+        padding: 0;
+    }
     .publication-details {
-        margin: 0.2em 0em 0.5em 0em;
+        margin: 0.2em 0em 1em 0em;
         padding: 0 0 0 0;
     }
 </style>
