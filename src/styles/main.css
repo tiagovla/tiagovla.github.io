@@ -226,6 +226,7 @@ footer {
 }
 
 pre {
+    position: relative;
     padding: 1.5em;
     border-radius: 5px;
     background-color: var(--code-bg);
@@ -239,4 +240,41 @@ pre {
     -webkit-font-feature-settings:
         'liga' 1,
         'calt' 1;
+}
+
+pre.has-copy-button {
+    padding-right: 3.5rem;
+}
+
+.copy-code-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.35rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--code-bg);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.copy-code-button:hover,
+.copy-code-button:focus-visible {
+    color: var(--purple);
+    border-color: var(--purple);
+}
+
+.copy-code-button svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
