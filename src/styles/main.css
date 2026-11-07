@@ -1,7 +1,7 @@
 :root {
     --sans: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto;
     --serif: Besley, Baskerville, Georgia, serif;
-    --mono: Hack, Consolas, monospace;
+    --mono: 'JetBrains Mono', Consolas, monospace;
 
     /* Min Content Width */
     --content-width: 25rem;
