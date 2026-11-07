@@ -2,9 +2,8 @@
 import { glob, file } from 'astro/loaders'
 import { dbLoader } from './utils/custom_loader.ts'
 
-
-
-import { z, defineCollection } from 'astro:content'
+import { defineCollection } from 'astro:content'
+import { z } from 'astro/zod'
 
 const blog = defineCollection({
     loader: glob({ pattern: '*.md', base: './src/data/blog' }),
@@ -27,10 +26,10 @@ const projects = defineCollection({
 
 const posts = defineCollection({
     loader: dbLoader({
-        hostname: process.env.COUCHDB_HOST!,
-        name: process.env.DB_NAME!,
-        username: process.env.COUCHDB_USER!,
-        password: process.env.COUCHDB_PASSWORD!,
+        hostname: import.meta.env.COUCHDB_HOST,
+        name: import.meta.env.DB_NAME,
+        username: import.meta.env.COUCHDB_USER,
+        password: import.meta.env.COUCHDB_PASSWORD,
     }),
     schema: z.object({
         title: z.string(),
@@ -38,7 +37,6 @@ const posts = defineCollection({
         tags: z.array(z.string()),
         date: z.date(),
     }),
-});
-
+})
 
 export const collections = { blog, projects, posts }

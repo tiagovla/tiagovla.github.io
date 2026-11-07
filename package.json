@@ -2,20 +2,27 @@
   "name": "",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22.23.4"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "check": "astro check",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.4.1",
-    "astro": "^5.11.2",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.7",
     "gray-matter": "^4.0.3"
   },
   "devDependencies": {
-    "prettier": "^3.6.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "@astrojs/check": "^0.9.12",
+    "@types/node": "^24.19.2",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
+    "typescript": "^6.0.3"
   }
 }

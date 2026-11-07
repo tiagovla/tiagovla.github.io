@@ -14,14 +14,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Install, build, and upload your site
         env:
           COUCHDB_HOST: ${{ secrets.COUCHDB_HOST }}
           DB_NAME: ${{ secrets.DB_NAME }}
           COUCHDB_USER: ${{ secrets.COUCHDB_USER }}
           COUCHDB_PASSWORD: ${{ secrets.COUCHDB_PASSWORD }}
-        uses: withastro/action@v3
+        uses: withastro/action@v6
+        with:
+          node-version: '24.22.2'
+          package-manager: npm@12.2.2
+          build-cmd: npm run check && npm run build
   cleanup:
     name: Cleanup old deployments
     needs: build
